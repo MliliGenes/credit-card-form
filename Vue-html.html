@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="vue.js"></script>
+    <script src="vue-mask.js"></script>
+    <link rel="stylesheet" href="Vue-css.css" />
+    <title>Credit Card Form</title>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="conatainer" id="app">
+      <div class="card-area">
+        <div class="font">
+          <div class="template">{{holder_number}}</div>
+          <div class="Expiration-Date">Expires</div>
+          <div class="date">{{holder_month}} / {{holder_year}}</div>
+          <div class="Card-Holders">Card Holders</div>
+          <div class="name">{{holder_cardHolders}}</div>
+        </div>
+        <div class="back">
+          <div class="num">{{holder_cvv}}</div>
+        </div>
+      </div>
+      <div class="form">
+        <h1>Credit Card Form</h1>
+        <label for="Holders">Card Holders</label>
+        <input
+          type="text"
+          v-model="cardHolders"
+          placeholder="Full Name"
+          maxlength="16"
+        />
+        <label for="Number">Card Number</label>
+        <input
+          type="text"
+          placeholder="#### #### #### ####"
+          v-model="cardNumber"
+          v-on:keypress="NumbersOnly"
+          v-mask="generateCardNumberMask"
+        />
+        <div class="bottom">
+          <div>
+            <label for="name">Expiration Date</label>
+            <select name="dob-year" class="datefield year" v-model="year">
+              <option value="">Year</option>
+              <option value="2030">2030</option>
+              <option value="2029">2029</option>
+              <option value="2028">2028</option>
+              <option value="2027">2027</option>
+              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+            </select>
+          </div>
+          <div>
+            <select name="dob-month" class="datefield month" v-model="month">
+              <option value="">Month</option>
+              <option value="01">Jan</option>
+              <option value="02">Feb</option>
+              <option value="03">Mar</option>
+              <option value="04">Apr</option>
+              <option value="05">May</option>
+              <option value="06">Jun</option>
+              <option value="07">Jul</option>
+              <option value="08">Aug</option>
+              <option value="09">Sep</option>
+              <option value="10">Oct</option>
+              <option value="11">Nov</option>
+              <option value="12">Dec</option>
+            </select>
+          </div>
+          <div>
+            <label for="cvv">CVV</label>
+            <input
+              type="text"
+              v-on:keypress="NumbersOnly"
+              v-model="cvv"
+              placeholder="###"
+              maxlength="3"
+            />
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
