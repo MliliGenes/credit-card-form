@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-image: radial-gradient(
+    white,
+    rgb(233, 233, 233),
+    rgba(32, 32, 32, 0.5) 80% 10%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.conatainer {
+  animation: hi 1 2s forwards ease, gogo infinite 6s ease-in-out alternate;
+  min-height: 500px;
+  width: 1100px;
+  background-color: white;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 400px calc(1100px - 120px - 400px);
+  gap: 40px;
+  padding: 40px;
+  box-shadow: 0px 50px 50px -50px rgba(0, 0, 0, 0.5);
+}
+@keyframes gogo {
+  100% {
+    transform: perspective(600px) rotateX(-8deg) translate(0, -30px)
+      translateZ(-10px);
+  }
+}
+@keyframes hi {
+  0% {
+    opacity: 0;
+    transform: perspective(5px) rotateX(50deg) translateY(800%);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(600px) rotateX(8deg);
+  }
+}
+.conatainer .card-area,
+.conatainer .form {
+  background-color: lightgray;
+  border-radius: 25px;
+  display: flex;
+  min-height: 520px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), 10px 10px 15px rgba(0, 0, 0, 0.1),
+    8px 8px 20px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+}
+
+.conatainer .card-area {
+  user-select: none;
+  padding: 40px;
+  gap: 40px;
+}
+
+.font,
+.back {
+  z-index: 0;
+  position: relative;
+  flex: 1;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1), 10px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.font::before {
+  position: absolute;
+  content: "";
+  bottom: -40px;
+  right: -80px;
+  width: 180px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: rgb(234, 234, 234);
+  box-shadow: -40px 20px 0 rgb(115, 115, 115, 0.3);
+}
+.font::after {
+  position: absolute;
+  content: "";
+  top: 24%;
+  left: 50px;
+  width: 42px;
+  height: 32px;
+  box-shadow: -10px 10px 0 rgb(115, 115, 115, 0.3);
+  background-color: rgb(234, 234, 234);
+  border-radius: 5px;
+}
+.font .template {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  font-size: 1.05em;
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  color: rgb(89, 89, 89);
+  letter-spacing: 5px;
+}
+.font .Expiration-Date {
+  position: absolute;
+  top: 68%;
+  right: 22%;
+  font-size: 0.8em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(161, 161, 161);
+}
+.font .date {
+  position: absolute;
+  top: 80%;
+  left: 65%;
+  font-size: 0.95em;
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  color: rgb(118, 118, 118);
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.font .Card-Holders {
+  position: absolute;
+  top: 68%;
+  left: 10%;
+  font-size: 0.8em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(161, 161, 161);
+}
+.font .name {
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  font-size: 0.8em;
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  color: rgb(126, 126, 126);
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.back::before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  top: 15%;
+  left: -10%;
+  width: 120%;
+  height: 18%;
+  box-shadow: -50px 20px 0 2px rgb(115, 115, 115, 0.3);
+  border-radius: 15px;
+  background-color: rgb(234, 234, 234);
+}
+
+.back::after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  top: 59%;
+  right: 10%;
+  width: 60px;
+  height: 20%;
+  border-radius: 5px;
+  background-color: rgba(213, 213, 213, 0.5);
+  box-shadow: -15px 15px 0 rgb(115, 115, 115, 0.3);
+}
+
+.back .num {
+  position: absolute;
+  top: 70%;
+  right: 2px;
+  width: 60px;
+  height: 20%;
+  font-size: 1em;
+  letter-spacing: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: rgb(118, 118, 118);
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conatainer .form {
+  padding: 20px;
+  padding-bottom: 50px;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+.conatainer .form button {
+  user-select: none;
+  height: 42px;
+  width: 80%;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  padding: 10px;
+  font-size: 1.1em;
+  color: rgb(126, 126, 126);
+  margin-top: 20px;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1), 10px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: 150ms ease all;
+}
+.conatainer .form button:active {
+  transform: translateY(3px) scale(0.95) perspective(200px) rotateX(5deg);
+  box-shadow: 4px 10px 10px -10px rgba(0, 0, 0, 0.1),
+    10px 20px 15px -10px rgba(0, 0, 0, 0.1);
+}
+.conatainer .form h1 {
+  user-select: none;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3em;
+}
+
+.conatainer .form input {
+  height: 38px;
+  width: 80%;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  padding: 10px;
+  font-size: 1.1em;
+  color: rgb(126, 126, 126);
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1), 10px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.conatainer .form > label {
+  user-select: none;
+  width: 75%;
+  transform: translateY(10px);
+  font-size: 0.9em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+.conatainer .form .bottom {
+  width: 80%;
+  display: flex;
+  gap: 20px;
+  align-items: end;
+  justify-content: space-around;
+}
+.conatainer .form .bottom div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  align-items: center;
+}
+.conatainer .form .bottom div select {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 38px;
+  width: 100%;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  padding: 10px;
+  font-size: 1em;
+  color: rgb(126, 126, 126);
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1), 10px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.conatainer .form .bottom div input {
+  width: 100%;
+  text-align: center;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1), 10px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.conatainer .form .bottom div label {
+  user-select: none;
+  font-size: 0.9em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1500px) {
+  .conatainer {
+    height: 420px;
+    width: 880px;
+    grid-template-columns: 340px calc(880px - 120px - 340px);
+  }
+
+  .conatainer .card-area,
+  .conatainer .form {
+    min-height: 380px;
+    gap: 20px;
+    padding: 20px;
+  }
+  .conatainer .form {
+    padding: 30px 20px;
+  }
+  .conatainer .form h1 {
+    font-size: 2.4em;
+    transform: translateY(8px);
+  }
+  .conatainer .form > label {
+    transform: translateY(8px);
+  }
+  .font .template {
+    top: 55%;
+    font-size: 0.95em;
+  }
+  .conatainer .form .bottom div {
+    flex: 1;
+  }
+  .conatainer .form button {
+    margin-top: 0px;
+    font-size: 0.95em;
+  }
+  .conatainer .form input {
+    height: 35px;
+    font-size: 0.95em;
+  }
+  .conatainer .form .bottom div select {
+    height: 35px;
+    padding: 10px;
+  }
+  .font .Card-Holders {
+    top: 72%;
+    left: 10%;
+  }
+  .font .name {
+    top: 82%;
+    left: 11%;
+  }
+  .font .Expiration-Date {
+    top: 72%;
+    right: 22%;
+  }
+  .font .date {
+    top: 82%;
+    left: 64%;
+  }
+}
